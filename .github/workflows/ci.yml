@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 16
 
-      - name: Clear NPM cache
+      - name: npm install
         run: npm install
 
       - name: Install Expo CLI
