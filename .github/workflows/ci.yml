@@ -23,12 +23,9 @@ jobs:
 
       - name: Install Expo CLI
         run: npm install --global expo-cli
-      
-      - name: Initialize eas
-        run: eas init
 
       - name: Login to EAS
-        run: eas login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
+        run: expo login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
 
       - name: Build APK
         run: eas build --platform android
