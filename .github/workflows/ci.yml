@@ -28,4 +28,4 @@ jobs:
         run: expo login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
 
       - name: Build APK
-        run: eas build --platform android
+        run: npx eas build --platform android
