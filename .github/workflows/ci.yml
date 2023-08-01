@@ -33,4 +33,4 @@ jobs:
           EXPO_CLI_YES: 1
 
       - name: Build APK
-        run: expo build:android
+        run: npx eas build --platform android
