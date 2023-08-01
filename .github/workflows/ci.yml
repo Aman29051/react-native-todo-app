@@ -16,25 +16,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 16
 
       - name: Clear NPM cache
-        run: npm cache clean --force
+        run: npm install
 
-      - name: Install Yarn
-        run: npm install -g yarn
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Install Expo CLI and EAS CLI
-        run: npx expo-cli install:cli
-
-      - name: Display environment information
-        run: expo diagnostics
+      - name: Install Expo CLI
+        run: npm install --global expo-cli
+      
+      - name: Initialize eas
+        run: eas init
 
       - name: Login to EAS
-        run: npx expo-cli login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
+        run: eas login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
 
       - name: Build APK
-        run: npx expo-cli eas:build --platform android
+        run: eas build --platform android
