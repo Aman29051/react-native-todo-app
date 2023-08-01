@@ -21,7 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build APK
-        run: eas build
+      - name: Install Expo CLI
+        run: npm install -g expo-cli
         env:
           EXPO_CLI_YES: 1
+
+      - name: Build APK
+        run: eas build
