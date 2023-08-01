@@ -32,5 +32,8 @@ jobs:
         env:
           EXPO_CLI_YES: 1
 
+      - name: Login to EAS
+        run: eas login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
+
       - name: Build APK
-        run: npx eas build --platform android
+        run: eas build --platform android
