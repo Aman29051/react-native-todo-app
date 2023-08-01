@@ -24,13 +24,11 @@ jobs:
       - name: Install Yarn
         run: npm install -g yarn
 
-      - name: Install dependencies
-        run: yarn install
+      - name: Install Expo CLI and EAS CLI
+        run: yarn global add expo-cli @expo/eas-cli
 
-      - name: Install Expo CLI
-        run: yarn global add expo-cli
-        env:
-          EXPO_CLI_YES: 1
+      - name: Display environment information
+        run: expo diagnostics
 
       - name: Login to EAS
         run: npx eas login --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
